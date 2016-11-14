@@ -1,0 +1,38 @@
+$button-color: red;
+$button-width: 10vw;
+$button-height: 3vw;
+
+@import './reset.scss';
+
+button {
+	&:focus {
+		outline: 0;
+	}
+	border: none;
+}
+
+ul {
+	padding-left: 60vw;
+	background-color: black;
+	height: 5vw;
+	li {
+		display: inline-block;
+	}
+	button {
+		position: relative;
+		top: 1vw;
+		font-size: 1vw;
+		color: $button-color;
+		width: $button-width;
+		height: $button-height;
+		border-radius: 1vw;
+		background-color: rgba(0, 0, 0, 0);
+		&:hover {
+			background-color: white;
+		}
+		&:active {
+			background-color: green;
+		}
+	}
+}
+
