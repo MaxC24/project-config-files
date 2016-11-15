@@ -57,7 +57,7 @@
 		var current = document.createElement('div');
 		if (i === 0) current.classList.add('active');
 		current.classList.add('item');
-		current.innerHTML = '<img src="images/' + i + '.jpg">';
+		current.innerHTML = '<img src="' + i + '.jpg">';
 		carouselInner.appendChild(current);
 	}
 
