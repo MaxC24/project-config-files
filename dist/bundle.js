@@ -46,47 +46,32 @@
 
 	'use strict';
 
-	var _cool = __webpack_require__(1);
+	__webpack_require__(1);
 
-	var _cool2 = _interopRequireDefault(_cool);
+	var carouselIndicator = document.querySelector('#carousel-example-generic>ol');
+	var carouselInner = document.querySelector('#carousel-example-generic>.carousel-inner');
+	carouselIndicator.innerHTML = '';
 
-	__webpack_require__(2);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var app = document.getElementById('app');
-	var comp = (0, _cool2.default)('div');
-
-	comp.innerText = 'me too, I like';
-	app.innerText = 'HELLO WORLD';
-
-	app.appendChild(comp);
+	for (var i = 0; i < 6; i++) {
+		carouselIndicator.innerHTML += '<li data-target="#myCarousel" data-slide-to="' + i + '"' + (i === 0 ? ' class="active"' : '') + '></li>';
+		var current = document.createElement('div');
+		if (i === 0) current.classList.add('active');
+		current.classList.add('item');
+		current.innerHTML = '<img src="images/' + i + '.jpg">';
+		carouselInner.appendChild(current);
+	}
 
 /***/ },
 /* 1 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	exports.default = function (ele) {
-		return document.createElement(ele);
-	};
-
-/***/ },
-/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(3);
+	var content = __webpack_require__(2);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(5)(content, {});
+	var update = __webpack_require__(4)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -103,21 +88,21 @@
 	}
 
 /***/ },
-/* 3 */
+/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(4)();
+	exports = module.exports = __webpack_require__(3)();
 	// imports
 
 
 	// module
-	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/ \n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nbutton {\n  border: none; }\n  button:focus {\n    outline: 0; }\n\nul {\n  padding-left: 60vw;\n  background-color: black;\n  height: 5vw; }\n  ul li {\n    display: inline-block; }\n  ul button {\n    position: relative;\n    top: 1vw;\n    font-size: 1vw;\n    color: red;\n    width: 10vw;\n    height: 3vw;\n    border-radius: 1vw;\n    background-color: transparent; }\n    ul button:hover {\n      background-color: white; }\n    ul button:active {\n      background-color: green; }\n", ""]);
+	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/ \n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nbutton {\n  border: none; }\n  button:focus {\n    outline: 0; }\n\nul {\n  padding-left: 60vw;\n  background-color: black;\n  height: 5vw; }\n  ul li {\n    display: inline-block; }\n  ul button {\n    position: relative;\n    top: 1vw;\n    font-size: 1vw;\n    color: red;\n    width: 10vw;\n    height: 3vw;\n    border-radius: 1vw;\n    background-color: transparent; }\n    ul button:hover {\n      background-color: white; }\n    ul button:active {\n      background-color: green; }\n\n#carousel-example-generic img {\n  height: 400px;\n  margin: 0 auto; }\n\n#carousel-example-generic .item {\n  text-align: center; }\n", ""]);
 
 	// exports
 
 
 /***/ },
-/* 4 */
+/* 3 */
 /***/ function(module, exports) {
 
 	/*
@@ -173,7 +158,7 @@
 
 
 /***/ },
-/* 5 */
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
