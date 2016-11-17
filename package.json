@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "angular": "^1.5.8",
     "bootstrap": "^3.3.7",
     "dotenv": "^2.0.0",
     "express": "^4.14.0",

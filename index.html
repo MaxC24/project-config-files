@@ -1,34 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-	 <link rel='shortcut icon' href='http://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/256/Home-icon.png' type='image/x-icon'/ >
-	<link href="bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <title></title>
+     <link rel='shortcut icon' href='http://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/256/Home-icon.png' type='image/x-icon'/ >
+    <link href="bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
-	<nav>
-		<ul>
-			<li><a><button>Home</button></a></li>
-			<li><a><button>Contact</button></a></li>
-			<li><a><button>Coolio</button></a></li>
-		</ul>
-	</nav>
-	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-		<ol class="carousel-indicators"></ol>
-		<div class="carousel-inner" role="listbox"></div> 
-		<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-		    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-		    <span class="sr-only">Previous</span>
-		  </a>
-		  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-		    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-		    <span class="sr-only">Next</span>
-		  </a>
-	</div>
-	<iframe width="560" height="315" src="https://www.youtube.com/embed/c7rCyll5AeY" frameborder="0" allowfullscreen></iframe>
-	<video width="1920" height="1080" src="total.mp4" type="video/mp4" controls></video>
-	<script src="jquery/dist/jquery.min.js"></script>
-	<script src="bootstrap/dist/js/bootstrap.js"></script>
-	<script src="bundle.js" defer></script>
+    <nav>
+        <ul>
+            <li><a><button>Home</button></a></li>
+            <li><a><button>Contact</button></a></li>
+            <li><a><button>Coolio</button></a></li>
+        </ul>
+    </nav>
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators"></ol>
+        <div class="carousel-inner" role="listbox"></div>
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+    </div>
+    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/c7rCyll5AeY" frameborder="0" allowfullscreen></iframe>
+    <video width="1920" height="1080" src="total.mp4" type="video/mp4" controls></video> -->
+    <div ng-app="app">
+        <div ng-controller="myCtrl">
+            <form novalidate class="simple-form">
+                 name: <input type="text" ng-model="user.name"><br />
+                 email: <input type="email" ng-model="user.email"><br />
+                 gender: <input type="radio" ng-model="user.gender" value="male">male
+                 <input type="radio" ng-model="user.gender" value="female">female<br />
+                 <input type="button" ng-click="reset()" value="reset">
+                 <input type="submit" ng-click="update(user)" value="save">
+            </form>
+            <pre> user = {{ user | json }} </pre>
+            <pre> master = {{ master | json }}</pre>
+        </div>
+    </div>
+    <script src="angular/angular.js"></script>
+    <script src="jquery/dist/jquery.min.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bundle.js" defer></script>
 </body>
 </html>

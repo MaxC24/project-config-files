@@ -48,6 +48,8 @@
 
 	__webpack_require__(1);
 
+	__webpack_require__(5);
+
 	var carouselIndicator = document.querySelector('#carousel-example-generic>ol');
 	var carouselInner = document.querySelector('#carousel-example-generic>.carousel-inner');
 	carouselIndicator.innerHTML = '';
@@ -408,6 +410,27 @@
 			URL.revokeObjectURL(oldSrc);
 	}
 
+
+/***/ },
+/* 5 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	angular.module('app', []).controller('myCtrl', function ($scope) {
+	    $scope.master = {};
+
+	    $scope.reset = function () {
+	        $scope.user = angular.copy($scope.master);
+	    };
+
+	    $scope.update = function (user) {
+	        $scope.master = angular.copy(user);
+	    };
+
+	    $scope.reset();
+	    console.log('hello');
+	});
 
 /***/ }
 /******/ ]);

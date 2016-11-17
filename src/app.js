@@ -15,6 +15,7 @@ for(let i = 0; i < 6; i++){
 	carouselInner.appendChild(current);
 }
 
+import '../angularApp/main.js';
 
 
 
