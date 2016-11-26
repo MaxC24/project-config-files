@@ -429,8 +429,36 @@
 	    };
 
 	    $scope.reset();
-	    console.log('hello');
+	}).directive("myInputField", function () {
+	    return {
+	        restrict: "A",
+	        link: function link(scope, ele) {
+	            ele.keyup(function () {
+	                var val = /^[A-Z].*/;
+	                if (!val.test(ele.val()) && ele.val() !== "") {
+	                    alert("Need to use capitalize word");
+	                    ele.val("");
+	                }
+	            });
+	            ele.mouseup(function (e) {
+	                e.preventDefault();
+	            });
+	            ele.focus(function (e) {
+	                ele.select();
+	            });
+	        }
+	    };
 	});
+
+	// .directive("myInput", () => {
+	//     return {
+	//         restrict: "E",
+	//         template: "<div><input></div>",
+	//         link: (scope, element, attr) => {
+
+	//         }
+	//     }
+	// })
 
 /***/ }
 /******/ ]);

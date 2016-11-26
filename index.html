@@ -29,6 +29,7 @@
     <video width="1920" height="1080" src="total.mp4" type="video/mp4" controls></video> -->
     <div ng-app="app">
         <div ng-controller="myCtrl">
+            <input my-input-field>
             <form novalidate class="simple-form">
                  name: <input type="text" ng-model="user.name"><br />
                  email: <input type="email" ng-model="user.email"><br />
@@ -41,8 +42,8 @@
             <pre> master = {{ master | json }}</pre>
         </div>
     </div>
-    <script src="angular/angular.js"></script>
     <script src="jquery/dist/jquery.min.js"></script>
+    <script src="angular/angular.js"></script>
     <script src="bootstrap/dist/js/bootstrap.js"></script>
     <script src="bundle.js" defer></script>
 </body>
