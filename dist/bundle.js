@@ -440,25 +440,26 @@
 	                    ele.val("");
 	                }
 	            });
-	            ele.mouseup(function (e) {
-	                e.preventDefault();
-	            });
-	            ele.focus(function (e) {
-	                ele.select();
+	        }
+	    };
+	}).directive("myInput", function () {
+	    return {
+	        restrict: "E",
+	        template: "<input ng-model='inp'>",
+	        link: function link(scope, element, attr) {
+	            var val = /^[A-Z].*/;
+	            scope.inp = "";
+	            element.keyup(function () {
+	                console.log("fudge");
+	                if (!val.test(scope.inp) && scope.inp !== "") {
+	                    alert("Need to use capitalize word");
+	                    scope.inp = "";
+	                    scope.$digest();
+	                }
 	            });
 	        }
 	    };
 	});
-
-	// .directive("myInput", () => {
-	//     return {
-	//         restrict: "E",
-	//         template: "<div><input></div>",
-	//         link: (scope, element, attr) => {
-
-	//         }
-	//     }
-	// })
 
 /***/ }
 /******/ ]);

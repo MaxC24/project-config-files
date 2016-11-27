@@ -29,12 +29,20 @@ angular.module('app', [])
     }
 })
 
-// .directive("myInput", () => {
-//     return {
-//         restrict: "E",
-//         template: "<div><input></div>",
-//         link: (scope, element, attr) => {
-
-//         }
-//     }
-// })
+.directive("myInput", () => {
+    return {
+        restrict: "E",
+        template: "<input ng-model='inp'>",
+        link: (scope, element, attr) => {
+            const val = /^[A-Z].*/;
+            scope.inp = "";
+            element.keyup(function(){
+                if(!val.test(scope.inp) && scope.inp !== "") {
+                    alert("Need to use capitalize word");
+                    scope.inp = "";
+                    scope.$digest();
+                }
+            })
+        }
+    }
+})
