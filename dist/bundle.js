@@ -98,7 +98,7 @@
 
 
 	// module
-	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/ \n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nbutton {\n  border: none; }\n  button:focus {\n    outline: 0; }\n\nul {\n  padding-left: 60vw;\n  background-color: black;\n  height: 5vw; }\n  ul li {\n    display: inline-block; }\n  ul button {\n    position: relative;\n    top: 1vw;\n    font-size: 1vw;\n    color: red;\n    width: 10vw;\n    height: 3vw;\n    border-radius: 1vw;\n    background-color: transparent; }\n    ul button:hover {\n      background-color: white; }\n    ul button:active {\n      background-color: green; }\n\n#carousel-example-generic img {\n  height: 40vw;\n  margin: 0 auto; }\n\n#carousel-example-generic .item {\n  text-align: center; }\n", ""]);
+	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/ \n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nbutton {\n  border: none; }\n  button:focus {\n    outline: 0; }\n\nul {\n  padding-left: 60vw;\n  background-color: black;\n  height: 5vw; }\n  ul li {\n    display: inline-block; }\n  ul button {\n    position: relative;\n    top: 1vw;\n    font-size: 1vw;\n    color: red;\n    width: 10vw;\n    height: 3vw;\n    border-radius: 1vw;\n    background-color: transparent; }\n    ul button:hover {\n      background-color: white; }\n    ul button:active {\n      background-color: green; }\n\n#carousel-example-generic img {\n  height: 40vw;\n  margin: 0 auto; }\n\n#carousel-example-generic .item {\n  text-align: center; }\n\n.redflag {\n  background: red; }\n", ""]);
 
 	// exports
 
@@ -433,10 +433,10 @@
 	    return {
 	        restrict: "A",
 	        link: function link(scope, ele) {
-	            ele.keyup(function () {
+	            ele.keydown(function () {
 	                var val = /^[A-Z].*/;
 	                if (!val.test(ele.val()) && ele.val() !== "") {
-	                    alert("Need to use capitalize word");
+	                    //alert("Need to use capitalize word");
 	                    ele.val("");
 	                }
 	            });
@@ -447,14 +447,16 @@
 	        restrict: "E",
 	        template: "<input ng-model='inp'>",
 	        link: function link(scope, element, attr) {
+	            var myInput = element.find('input');
 	            var val = /^[A-Z].*/;
 	            scope.inp = "";
-	            element.keyup(function () {
-	                console.log("fudge");
+	            element.keydown(function () {
 	                if (!val.test(scope.inp) && scope.inp !== "") {
-	                    alert("Need to use capitalize word");
-	                    scope.inp = "";
-	                    scope.$digest();
+	                    // alert("Need to use capitalize word");
+	                    myInput.addClass("redflag");
+	                    scope.$apply();
+	                } else {
+	                    myInput.removeClass("redflag");
 	                }
 	            });
 	        }

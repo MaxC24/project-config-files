@@ -18,7 +18,7 @@ angular.module('app', [])
     return {
         restrict: "A",
         link: function(scope, ele) {
-            ele.keyup(function() {
+            ele.keydown(function() {
                 const val = /^[A-Z].*/;
                 if(!val.test(ele.val()) && ele.val() !== "") {
                     //alert("Need to use capitalize word");
@@ -34,13 +34,16 @@ angular.module('app', [])
         restrict: "E",
         template: "<input ng-model='inp'>",
         link: (scope, element, attr) => {
+            const myInput = element.find('input');
             const val = /^[A-Z].*/;
             scope.inp = "";
-            element.keyup(function(){
+            element.keydown(function(){
                 if(!val.test(scope.inp) && scope.inp !== "") {
                    // alert("Need to use capitalize word");
-                    scope.inp = "";
-                    scope.$digest();
+                   myInput.addClass("redflag");
+                   scope.$apply();
+                } else {
+                    myInput.removeClass("redflag");
                 }
             })
         }
