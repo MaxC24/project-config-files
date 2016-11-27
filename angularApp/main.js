@@ -21,7 +21,7 @@ angular.module('app', [])
             ele.keyup(function() {
                 const val = /^[A-Z].*/;
                 if(!val.test(ele.val()) && ele.val() !== "") {
-                    alert("Need to use capitalize word");
+                    //alert("Need to use capitalize word");
                     ele.val("");
                 }
             })
@@ -38,7 +38,7 @@ angular.module('app', [])
             scope.inp = "";
             element.keyup(function(){
                 if(!val.test(scope.inp) && scope.inp !== "") {
-                    alert("Need to use capitalize word");
+                   // alert("Need to use capitalize word");
                     scope.inp = "";
                     scope.$digest();
                 }
